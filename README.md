@@ -1,2 +1,2 @@
-# armaansood.com
+# www.armaansood.com
 My personal website
