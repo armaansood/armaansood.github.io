@@ -1,3 +1,2 @@
-# armaansood.github.io
+# armaansood.com
 My personal website
-Visit it at armaansood.com
