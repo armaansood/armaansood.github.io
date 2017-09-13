@@ -8,10 +8,7 @@
      <meta content='Armaan Sood' name='author'/>
       <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
       <title>Armaan Sood</title>
-      <b:skin><![CDATA[
-         /*
-            @charset "UTF-8";
-            /* CSS Document */
+      <style>
 
             body {
             background: #fff;
@@ -202,10 +199,10 @@
 			div {
 			border:1px solid black;
 			}
-            }
             
             
-      ]]></b:skin>
+            
+	      </style>
       </meta>
 
    </head>
@@ -247,7 +244,6 @@
              document.body.className = document.body.className.replace(&#39;loading&#39;, &#39;&#39;);
            }, 10);
       </script>
-      <b:section id='fixelements' showaddelement='no'/>
    </body>
 
 </html>
