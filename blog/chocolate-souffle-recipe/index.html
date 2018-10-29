@@ -18,14 +18,21 @@
         background: #fff;
         font-weight: light;
         color: #1b1b1b;
+		padding: 1em;
+  margin: auto;
+  max-width: 45em;
+  line-height: 1.5;
         }
 		html {
 		display:table;
 		margin: auto;
+		font-size: 100%;
+		overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 		}
         ul {
         font-size: 1em;
-
         }
 		li {
 		max-width: 80%;
@@ -33,10 +40,48 @@
         .main {
         max-width: 100%;
 		max-height:100%;
-        padding-top: 1%;
         font-family: 'Source Sans Pro';
+		font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
         }
-        p {
+		
+		p {
+		  margin: 1em 0;
+		}
+		
+		h1, h2, h3, h4, h5, h6 {
+  color: #111;
+  line-height: 125%;
+  margin-top: 1em;
+  font-weight: normal;
+}
+
+h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+}
+       /* p {
         text-align: left;
         width: 50em;
 		max-width: 80%;
@@ -52,7 +97,7 @@
         color: #111111;
         font-size: 3em;
         margin: 0;
-        }
+        } */
         .img-self {
         border-radius:60%;
         }
@@ -114,11 +159,12 @@
     <div class='main'>
         <article>
 			<a class='return' href='index.html'>Blog</a>
-            <h3>Chocolate Soufflé Recipe</h3>
-            <p>I enjoy all kinds of food, but I tend to avoid desserts because of how sugar-packed they can be. I think baking your own desserts is a good way to get around this. Plus, baking is surprisingly similar to programming: you follow an algorithm using limited resources, you have to be exact with measurements, and a single step out of order can ruin everything. Your family and friends might also volunteer to be QA testers. </p>
-            <p>I've been making these for nearly 6 years and enjoy baking them as much as I do eating them.</p>
-            <a> <img alt='Chocolate Soufflé' border='0' src='images/chocolatesouffle.png' style='width:20em;'> </a>
-            <p>A convenient feature about this recipe is that you can prepare the ramekins with the uncooked soufflé and refrigerate it for a couple hours before baking.</p>
+            <h1>Chocolate Soufflé Recipe</h1>
+            <p>I enjoy all kinds of food, but I tend to avoid desserts because of how sugar-packed they can be. I think baking your own desserts is a good way to get around this. </p>
+            <p>I've been making these for nearly 6 years and they taste good.</p>
+            
+            <p>You can pour the soufflé batter into the ramekins and refrigerate it for a couple hours before baking.</p>
+			<h3> Ingredients </h3>
             <p>To make 8 6-ounce soufflés, you'll need:</p>
             <ul>
                 <li>8 6-ounce <b>ramekins</b></li>
@@ -131,7 +177,7 @@
                 <li>2 tablespoons of <b>whole milk</b> (or heavy cream)</li>
                 <li>1 teaspoon of <b>pure vanilla extract</b></li>
             </ul>
-            <p> Here's the recipe: </p>
+            <h3> Recipe </h3>
             <ol>
             <li>Preheat oven to 350 degrees</li>
             <li>Grease the inside surfaces each ramekin with softened butter</li>
@@ -177,12 +223,7 @@
             <li>Else, bake for 15-17 minutes or until soufflés are puffed and cracked on top</li>
             <li>Serve immediately </li>
         </article>
-    </div>
-    <script type='text/javascript'>
-        window.setTimeout(function() {
-            document.body.className = document.body.className.replace(&#39;loading&#39;, &#39;&#39;);
-          }, 10);
-    </script>
+    </div><img alt='Chocolate Soufflé' border='0' src='chocolatesouffle.png'>
 </body>
 </html>
 
