@@ -20,10 +20,40 @@
     <article>
       <a class='return' href='../index.html'>Blog</a>
       <h1>Photos from Iceland</h1>
+	  
+	  <script>
+	  // create images array 
+	  let allImages = []; 
+	  for(let i = 1; i < 116; i++) 
+	  { allImages.push({ lowqual: `compressed/${i}.jpg`, highqual: `photos/${i}.jpg` }) } 
+	  // get a <div id="images"></div> to append images to later 
+	  document.getElementById('images'); 
+	  // for every image... 
+	  allImages.forEach((d, i) => { 
+	  // get image links 
+	  let compressedImgLink = d.lowqual; 
+	  let fullImgLink = d.highqual; 
+	  // create div to place image inside (easier to replace) 
+	  let div = document.createElement('div'); 
+	  div.id = `image-${i}`; 
+	  let imageToAppend = document.createElement('img'); 
+	  imageToAppend.src = compressedImgLink; 
+	  div.appendChild(imageToAppend) 
+	  let betterImageToAppend = new Image(); 
+	  betterImageToAppend.src = fullImgLink; 
+	  betterImageToAppend.onload = () => { 
+	  // if this doesn't work, uncomment below and try that instead 
+	  div.removeChild(div.firstChild); 
+	  div.appendChild(betterImageToAppend); // 
+	  //let divPointer = document.getElementById(`image-${i}`); 
+	  //divPointer.removeChild(divPointer.firstChild); 
+	  //divPointer.appendChild(betterImageToAppend); 
+	  } 
+	  })
+	  </script>
+	  
       <img src='photos/33.jpg' class='padding' width=100%>
       I was in Iceland from 9/15/2018 to 9/24/2018 and traveled around the island in a rental car. I have over 2000 photos of the trip, but here are some of my favorites.
-      <br>
-      <br>
       <br>
       <br>
       <br>
