@@ -20,45 +20,84 @@
     <article>
       <a class='return' href='../index.html'>Blog</a>
       <h1>Photos from Iceland</h1>
+	  <p>I was in Iceland from 9/15/2018 to 9/24/2018 and traveled around the island in a rental car. I have over 2000 photos of the trip, but here are some of my favorites.</p>
+
+	  <hr>
+	  <div id="images"></div>
 	  
 	  <script>
-	  // create images array 
-	  let allImages = []; 
-	  for(let i = 1; i < 116; i++) 
-	  { allImages.push({ lowqual: `compressed/${i}.jpg`, highqual: `photos/${i}.jpg` }) } 
-	  // get a <div id="images"></div> to append images to later 
-	  document.getElementById('images'); 
-	  // for every image... 
-	  allImages.forEach((d, i) => { 
-	  // get image links 
-	  let compressedImgLink = d.lowqual; 
-	  let fullImgLink = d.highqual; 
-	  // create div to place image inside (easier to replace) 
-	  let div = document.createElement('div'); 
-	  div.id = `image-${i}`; 
-	  let imageToAppend = document.createElement('img'); 
-	  imageToAppend.src = compressedImgLink; 
-	  div.appendChild(imageToAppend) 
-	  let betterImageToAppend = new Image(); 
-	  betterImageToAppend.src = fullImgLink; 
-	  betterImageToAppend.onload = () => { 
-	  // if this doesn't work, uncomment below and try that instead 
-	  div.removeChild(div.firstChild); 
-	  div.appendChild(betterImageToAppend); // 
-	  //let divPointer = document.getElementById(`image-${i}`); 
-	  //divPointer.removeChild(divPointer.firstChild); 
-	  //divPointer.appendChild(betterImageToAppend); 
-	  } 
-	  })
+	  // create images array
+let allImages = [];
+let lowQualLoadedCount = 0;
+
+allImages.push({
+        lowqual: `compressed/33.jpg`,
+        highqual: `photos/33.jpg`
+    })
+
+for (let i = 1; i < 116; i++) {
+	if (i != 33 && i != 2) {
+    allImages.push({
+        lowqual: `compressed/${i}.jpg`,
+        highqual: `photos/${i}.jpg`
+    })
+	}
+}
+
+// get a <div id="images"></div> to append images to later
+let allImagesDiv = document.getElementById('images');
+
+// startFetchingLargerImages will start the process of fetching and replacing large images
+let startFetchingLargerImages = () => {
+    allImages.forEach((d, i) => {
+        let fullImgLink = d.highqual;
+        let betterImageToAppend = new Image();
+        betterImageToAppend.src = fullImgLink;
+        betterImageToAppend.className = "test";
+        betterImageToAppend.onload = () => {
+            let divPointer = document.getElementById(`image-${i}`);
+            divPointer.removeChild(divPointer.firstChild);
+            divPointer.appendChild(betterImageToAppend);
+        }
+    })
+}
+
+// SetLowQualLoaded sets allImages at index i to have lowQualLoaded to be true (does nothing)
+// if the lowQualLoadedCount is equal to allImages.length, then it starts to fetch the larger images.
+// This makes it so that the larger images are only fetched after all the low quality images are loaded.
+let setLowQualLoaded = (i) => {
+    allImages[i].lowQualLoaded = true; // might be useful later
+    lowQualLoadedCount++;
+    console.log(lowQualLoadedCount);
+
+    if (lowQualLoadedCount >= allImages.length) {
+        console.log("startingtoFetch")
+        startFetchingLargerImages();
+    }
+}
+
+// for every image...
+allImages.forEach((d, i) => {
+    // get image links
+    let compressedImgLink = d.lowqual;
+
+    // create div to place image inside (easier to replace)
+    let div = document.createElement('div');
+    div.id = `image-${i}`;
+
+    let imageToAppend = document.createElement('img');
+    imageToAppend.src = compressedImgLink;
+    imageToAppend.className = "test";
+    imageToAppend.onload = () => {
+        setLowQualLoaded(i);
+    }
+
+    div.appendChild(imageToAppend);
+    allImagesDiv.appendChild(div)
+})
 	  </script>
-	  
-      <img src='photos/33.jpg' class='padding' width=100%>
-      I was in Iceland from 9/15/2018 to 9/24/2018 and traveled around the island in a rental car. I have over 2000 photos of the trip, but here are some of my favorites.
-      <br>
-      <br>
-      <br>
-      <hr style="width:100%">
-      <img src='photos/1.jpg'  width=100%>
+	 <!--  <div id="images"></div>
+     <img src='photos/1.jpg'  width=100%>
       <img src='photos/3.jpg' class='padding' width=100%>
       <img src='photos/4.jpg' class='padding' width=100%>
       <img src='photos/5.jpg' class='padding' width=100%>
@@ -171,7 +210,7 @@
       <img src='photos/112.jpg' class='padding' width=100%>
       <img src='photos/113.jpg' class='padding' width=100%>
       <img src='photos/114.jpg' class='padding' width=100%>
-      <img src='photos/115.jpg' class='padding' width=100%>
+      <img src='photos/115.jpg' class='padding' width=100%> -->
 
     </article>
 </body>
