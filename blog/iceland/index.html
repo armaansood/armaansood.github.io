@@ -13,13 +13,26 @@
   <!-- CSS -->
     </meta>
 </head>
+
 <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
   <!-- CONTENT -->
   <div class='main'>
     <article>
       <a class='return' href='../index.html'>Blog</a>
       <h1>Photos from Iceland</h1>
-      <img src='photos/33.jpg' class='padding' width=100%>
+	  <script>
+var imagesToLoad = document.querySelectorAll('img[data-src]');
+var loadImages = function(image) {
+  image.setAttribute('src', image.getAttribute('data-src'));
+  image.onload = function() {
+    image.removeAttribute('data-src');
+  };
+};
+imagesToLoad.forEach(function(img) {
+  loadImages(img);
+});
+</script>
+      <img src='photos/33.jpg' data-src='photos/windowslight.jpg' class='padding' width=100%>
       I was in Iceland from 9/14/2018 to 9/24/2018 and traveled around the island in a rental car. I have over 2000 photos of the trip, but here are some of my favorites.
       <br>
       <br>
