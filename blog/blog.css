@@ -1,11 +1,12 @@
  body {
      background: #fff;
      font-weight: light;
-     color: #1b1b1b;
+     /*color: #1b1b1b;*/
+	 color: #444;
      padding: 1em;
      margin: auto;
-     max-width: 45em;
-     line-height: 1.5;
+     max-width: 41em;
+     line-height: 1.6;
 }
  html {
      display:table;
@@ -15,6 +16,31 @@
      -webkit-text-size-adjust: 100%;
      -ms-text-size-adjust: 100%;
 }
+
+a:focus {
+  outline: thin dotted;
+}
+
+*::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+
+*::selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+
+a::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #0645ad;
+}
+
+a::selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #0645ad;
+}
+
  ul {
      font-size: 1em;
 }
