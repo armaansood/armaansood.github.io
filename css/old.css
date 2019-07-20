@@ -1,4 +1,5 @@
  body {
+ font-size: 85%;
      background: #fff;
      font-weight: light;
      /*color: #1b1b1b;*/
@@ -95,6 +96,7 @@ a::selection {
 }
  a:hover {
      color: #4d79ff;
+	 background-color: #000;
 }
  div.about {
      width:700px;
