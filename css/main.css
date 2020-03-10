@@ -61,14 +61,10 @@ a:visited {
     color: #000
 }
 
-a:hover {
+a:hover:not(.img) {
     color: #fff;
     background-color: #000;
     text-decoration: none
-}
-
-.img:hover{
-  background: transparent;
 }
 
 hr {
