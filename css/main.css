@@ -3,8 +3,9 @@ html {
 }
 
 body {
-    font-size: 85%;
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	color: #111;
+    font-size: 97%;
+    font-family: Arial;
     line-height: 1.7;
     text-align: justify;
 }
@@ -20,13 +21,10 @@ h1 {
 h2 {
 	font-size: 1.5em;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-align: left
+
+h3 {
+	margin:0px;
+	padding:0px;
 }
 
 .header-date {
@@ -39,8 +37,6 @@ img {
     height: auto;
     margin: auto;
 }
-
-
 
 code,
 pre {
@@ -68,7 +64,7 @@ a:hover:not(.img) {
 }
 
 hr {
-    margin: 25px auto 25px
+    margin: 10px auto 20px
 }
 
 table {
