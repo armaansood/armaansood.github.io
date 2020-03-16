@@ -1,154 +1,90 @@
- body {
- font-size: 85%;
-     background: #fff;
-     font-weight: light;
-     /*color: #1b1b1b;*/
-	 color: #444;
-     padding: 1em;
-     margin: auto;
-     max-width: 41em;
-     line-height: 1.6;
-}
- html {
-     display:table;
-     margin: auto;
-     font-size: 100%;
-     overflow-y: scroll;
-     -webkit-text-size-adjust: 100%;
-     -ms-text-size-adjust: 100%;
+html {
+  overflow-y: scroll;
 }
 
-a:focus {
-  outline: thin dotted;
+body {
+	color: #111;
+    font-size: 97%;
+    font-family: Arial;
+    line-height: 1.7;
+    text-align: justify;
+}
+article {
+    max-width: 700px;
+    margin: 50px auto 50px;
 }
 
-*::-moz-selection {
-  background: rgba(255, 255, 0, 0.3);
-  color: #000;
+h1 {
+	font-size: 2em;
 }
 
-*::selection {
-  background: rgba(255, 255, 0, 0.3);
-  color: #000;
+h2 {
+	font-size: 1.5em;
 }
 
-a::-moz-selection {
-  background: rgba(255, 255, 0, 0.3);
-  color: #0645ad;
+h3 {
+	margin:0px;
+	padding:0px;
 }
 
-a::selection {
-  background: rgba(255, 255, 0, 0.3);
-  color: #0645ad;
+.header-date {
+    text-align: right
 }
 
- ul {
-     font-size: 1em;
+img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
 }
- li {
-     max-width: 80%;
+
+code,
+pre {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #eceff1
 }
- .main {
-     max-width: 100%;
-     max-height:100%;
-     font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+
+pre {
+    padding: 1.2em
 }
- p {
-     margin: 1em 0;
+
+a:link {
+    color: #000;
+    text-decoration: underline
 }
- h1, h2, h3, h4, h5, h6 {
-     color: #111;
-     line-height: 125%;
-     margin-top: 1em;
-     font-weight: normal;
+
+a:visited {
+    color: #000
 }
- h4, h5, h6 {
-     font-weight: bold;
+
+a:hover:not(.img) {
+    color: #fff;
+    background-color: #000;
+    text-decoration: none
 }
- h1 {
-     font-size: 2.5em;
+
+hr {
+    margin: 10px auto 20px
 }
- h2 {
-     font-size: 2em;
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75rem 0
 }
- h3 {
-     font-size: 1.5em;
+
+table,
+td,
+th {
+    padding: 10px
 }
- h4 {
-     font-size: 1.2em;
+::-moz-selection {
+	color: white;
+	background-color: blue;
 }
- h5 {
-     font-size: 1em;
+::selection {
+	color: white;
+	background-color: blue;
 }
- h6 {
-     font-size: 0.9em;
-}
- .img-self {
-     border-radius:60%;
-}
- .img-responsive {
-     border-radius:60%;
-}
- a {
-     text-decoration: none;
-	 font-weight: 200;
-	 color: #3945cc;
-}
- a:hover {
-     color: #4d79ff;
-	 background-color: #000;
-}
- div.about {
-     width:700px;
-     position:relative;
-     font-size:1.25em;
-}
- div.img {
-     width:1100px;
-     position:absolute;
-     top:9em;
-}
-div.contact {
-		max-width:100%;
-		float:left;
-		position:absolute;
-        color: #111;
-        font-weight:normal;
-        font-size:14px;
-		}
-		td
-{
-    padding:0 7em 0 0;
-}
- a.button {
-     background-color: #F60;
-     color: #111;
-     font-weight:normal;
-     font-size:14px;
-     line-height:1.2em;
-     text-decoration:none;
-     border-radius:5px;
-     padding: 10px 30px 10px;
-     box-shadow: 0px 1px 0px #111;
-}
- a.button:hover {
-     background-color: #FC0;
-     color: #111;
-}
- a.return {
-     font-weight: 200;
-     color: #708090;
-}
- hr {
-     border: 0;
-     width: 100%;
-     height: 2px;
-     background-color: #ccc;
-     margin-top: 35px;
-     margin-bottom: 35px;
-     margin-right: 1000px;
-     align: left;
-}
-.test {
-	width: 100%;
-}
+
+
