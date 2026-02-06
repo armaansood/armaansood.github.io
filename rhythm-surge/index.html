@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Rhythm Surge – Beat the Music</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Song Select Screen -->
+    <div id="menu-screen">
+        <div class="menu-container">
+            <h1 class="game-title">RHYTHM<span>SURGE</span></h1>
+            <p class="tagline">Feel the beat. Hit the notes.</p>
+            
+            <div id="song-list" class="song-list">
+                <!-- Songs populated by JS -->
+            </div>
+            
+            <div class="controls-help">
+                <h3>Controls</h3>
+                <p><strong>Desktop:</strong> D  F  J  K keys</p>
+                <p><strong>Mobile:</strong> Tap the lanes</p>
+                <p><strong>Space</strong> to pause</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Game Canvas -->
+    <canvas id="game-canvas" class="hidden"></canvas>
+    
+    <!-- HUD Overlay -->
+    <div id="hud" class="hidden">
+        <div id="hud-top">
+            <div id="song-name" class="song-name-hud"></div>
+            <div id="score-display">0</div>
+            <div id="accuracy-display">100%</div>
+        </div>
+    </div>
+    
+    <!-- Pause Overlay -->
+    <div id="pause-screen" class="hidden">
+        <div class="pause-container">
+            <h2>PAUSED</h2>
+            <button id="resume-btn" class="primary-btn">Resume</button>
+            <button id="restart-btn" class="secondary-btn">Restart</button>
+            <button id="quit-btn" class="secondary-btn">Quit</button>
+        </div>
+    </div>
+    
+    <!-- Results Screen -->
+    <div id="results-screen" class="hidden">
+        <div class="results-container">
+            <h1 id="grade-display" class="grade">S</h1>
+            <h2 id="results-song-name"></h2>
+            <div id="results-stats" class="results-stats"></div>
+            <button id="retry-btn" class="primary-btn">Retry</button>
+            <button id="back-btn" class="secondary-btn">Song Select</button>
+        </div>
+    </div>
+    
+    <!-- Mobile touch zones (invisible, over canvas) -->
+    <div id="touch-zones" class="hidden">
+        <div class="touch-zone" data-lane="0"></div>
+        <div class="touch-zone" data-lane="1"></div>
+        <div class="touch-zone" data-lane="2"></div>
+        <div class="touch-zone" data-lane="3"></div>
+    </div>
+    
+    <script src="music.js"></script>
+    <script src="game.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
