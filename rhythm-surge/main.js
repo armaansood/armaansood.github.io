@@ -301,6 +301,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 songs[currentSongIndex].bestScore = score;
             }
         }
+
+        // Offer leaderboard submission
+        if (results.score > 0) {
+            setTimeout(function () {
+                offerRhythmLeaderboardSubmit(songName, results);
+            }, 1200);
+        }
     }
 
     function animateResultCounters() {
@@ -563,4 +570,94 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== Start ====================
     init();
+
+    // ==================== Leaderboard ====================
+    function songKey(songName) {
+        return 'rs_scores_' + songName.toLowerCase().replace(/[^a-z0-9]/g, '_');
+    }
+
+    const RS_COLUMNS = [
+        { key: 'name', label: 'Player', cls: 'lb-name' },
+        { key: 'score', label: 'Score', cls: 'lb-highlight', format: function (v) { return v.toLocaleString(); } },
+        { key: 'grade', label: 'Grade' },
+        { key: 'accuracy', label: 'Accuracy', format: function (v) { return v + '%'; } }
+    ];
+
+    function offerRhythmLeaderboardSubmit(songName, results) {
+        if (typeof Leaderboard === 'undefined') return;
+        Leaderboard.promptName(function (name) {
+            if (!name) return;
+            Leaderboard.submit(songKey(songName), {
+                name: name,
+                score: results.score || 0,
+                grade: results.grade || 'D',
+                accuracy: results.percent || 0,
+                song: songName
+            }, 'score', 'desc');
+        });
+    }
+
+    function showRhythmLeaderboard() {
+        if (typeof Leaderboard === 'undefined') return;
+        var songs = game ? game.songs : [];
+
+        var overlay = document.createElement('div');
+        overlay.className = 'lb-modal-overlay';
+
+        var modal = document.createElement('div');
+        modal.className = 'lb-modal';
+
+        var h2 = document.createElement('h2');
+        h2.textContent = '🏆 Leaderboard';
+        modal.appendChild(h2);
+
+        var subtitle = document.createElement('div');
+        subtitle.className = 'lb-subtitle';
+        subtitle.textContent = 'Top scores by song';
+        modal.appendChild(subtitle);
+
+        // Song tabs
+        var tabs = document.createElement('div');
+        tabs.className = 'lb-tabs';
+        var tableContainer = document.createElement('div');
+
+        songs.forEach(function (song, i) {
+            var tab = document.createElement('button');
+            tab.className = 'lb-tab' + (i === 0 ? ' active' : '');
+            tab.textContent = song.name;
+            tab.addEventListener('click', function () {
+                tabs.querySelectorAll('.lb-tab').forEach(function (t) { t.classList.remove('active'); });
+                tab.classList.add('active');
+                loadRSTable(songKey(song.name), tableContainer);
+            });
+            tabs.appendChild(tab);
+        });
+        modal.appendChild(tabs);
+        modal.appendChild(tableContainer);
+
+        // Load first song
+        if (songs.length > 0) loadRSTable(songKey(songs[0].name), tableContainer);
+
+        var closeBtn = document.createElement('button');
+        closeBtn.className = 'lb-close';
+        closeBtn.textContent = 'Close';
+        closeBtn.addEventListener('click', function () { overlay.remove(); });
+        modal.appendChild(closeBtn);
+
+        overlay.appendChild(modal);
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.remove(); });
+        document.body.appendChild(overlay);
+    }
+
+    function loadRSTable(key, container) {
+        Leaderboard.getTop(key, 'score', 'desc', 10, function (entries) {
+            Leaderboard.renderTable(entries, RS_COLUMNS, container);
+        });
+    }
+
+    // Hook leaderboard button
+    var lbBtn = document.getElementById('leaderboard-btn');
+    if (lbBtn) {
+        lbBtn.addEventListener('click', showRhythmLeaderboard);
+    }
 });
