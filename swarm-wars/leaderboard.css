@@ -1,0 +1,212 @@
+/* ============================================================
+   Leaderboard shared styles
+   ============================================================ */
+
+/* --- Name prompt overlay --- */
+.lb-name-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    animation: lbFadeIn 0.2s ease;
+}
+.lb-name-box {
+    background: rgba(20, 20, 40, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 32px;
+    min-width: 300px;
+    max-width: 90vw;
+    text-align: center;
+}
+.lb-name-box h3 {
+    margin: 0 0 18px;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+.lb-name-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    font-size: 1.1em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.lb-name-input:focus {
+    border-color: #4a9eff;
+}
+.lb-name-btns {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.lb-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+.lb-btn:active { transform: scale(0.96); }
+.lb-btn-primary {
+    background: #4a9eff;
+    color: #fff;
+}
+.lb-btn-primary:hover { background: #5aadff; }
+.lb-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+.lb-btn-secondary:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* --- Leaderboard modal --- */
+.lb-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    animation: lbFadeIn 0.2s ease;
+}
+.lb-modal {
+    background: rgba(10, 12, 28, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 32px;
+    min-width: 360px;
+    max-width: 600px;
+    width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.lb-modal h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 1.5em;
+    text-align: center;
+}
+.lb-modal .lb-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85em;
+    margin-bottom: 18px;
+}
+
+/* --- Tab bar (for Rhythm Surge per-song tabs) --- */
+.lb-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+.lb-tab {
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.82em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+.lb-tab:hover { border-color: rgba(255, 255, 255, 0.3); color: #fff; }
+.lb-tab.active {
+    background: #4a9eff;
+    border-color: #4a9eff;
+    color: #fff;
+}
+
+/* --- Table --- */
+.lb-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+.lb-table thead th {
+    padding: 8px 10px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.lb-table tbody td {
+    padding: 10px 10px;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.lb-table tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+.lb-rank { font-weight: 700; width: 36px; text-align: center; }
+.lb-name { font-weight: 600; color: #fff !important; }
+.lb-highlight { color: #4a9eff !important; font-weight: 700; }
+.lb-empty {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    padding: 30px 0;
+    font-style: italic;
+}
+
+/* --- Close button --- */
+.lb-close {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 32px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s;
+}
+.lb-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+/* --- Menu leaderboard button --- */
+.lb-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+.lb-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes lbFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

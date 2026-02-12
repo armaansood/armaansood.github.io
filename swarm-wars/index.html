@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="screen-orientation" content="landscape">
+    <meta name="x5-orientation" content="landscape">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Swarm Wars - Strategy Game</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Main Menu Screen -->
+    <div id="menu-screen">
+        <div class="menu-container">
+            <h1 class="game-title" id="game-title">SWARM<span id="game-title-accent">WARS</span></h1>
+            <p class="tagline" id="game-tagline">Gather nectar. Defend the hive.</p>
+            
+            <button id="campaign-btn" class="campaign-primary-btn">📜 CAMPAIGN</button>
+
+            <div class="menu-divider"><span>— or Quick Play —</span></div>
+
+            <div class="menu-options">
+                <div class="option-group">
+                    <label>Theme</label>
+                    <div class="button-group" id="theme-select">
+                        <button data-value="bee-swarm" class="selected">🐝 Bees</button>
+                        <button data-value="space">🚀 Space</button>
+                        <button data-value="ant-colony">🐜 Bugs</button>
+                        <button data-value="medieval">⚔️ Medieval</button>
+                        <button data-value="neon" class="secret-theme">❓ ???</button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <label>Difficulty</label>
+                    <div class="button-group" id="difficulty-select">
+                        <button data-value="easy">Easy</button>
+                        <button data-value="medium" class="selected">Medium</button>
+                        <button data-value="hard">Hard</button>
+                        <button data-value="impossible">Impossible</button>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <label>Mode</label>
+                    <div class="button-group" id="mode-select">
+                        <button data-value="play" class="selected">Play</button>
+                        <button data-value="spectate">Spectate (AI Only)</button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <label>Opponents</label>
+                    <div class="button-group" id="opponents-select">
+                        <button data-value="1" class="selected">1</button>
+                        <button data-value="2">2</button>
+                        <button data-value="3">3</button>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <label>Map Size</label>
+                    <div class="button-group" id="mapsize-select">
+                        <button data-value="small">Small</button>
+                        <button data-value="medium" class="selected">Medium</button>
+                        <button data-value="large">Large</button>
+                    </div>
+                </div>
+                
+                <button id="start-btn" class="primary-btn">▶ START GAME</button>
+                <button id="achievements-btn" class="achievements-btn">🏅 Achievements</button>
+            </div>
+            
+            <div class="controls-help">
+                <button class="controls-toggle" onclick="this.parentElement.classList.toggle('open')">
+                    ▸ How to Play
+                </button>
+                <div class="controls-content controls-desktop">
+                    <p><strong>Click</strong> a planet to select → Click target to send ships</p>
+                    <p><strong>Drag</strong> to box-select multiple planets</p>
+                    <p><strong>Press A</strong> to select all your planets</p>
+                    <p><strong>Shift+Click</strong> target to send 75% ships</p>
+                    <p><strong>Ctrl+Click</strong> to multi-select</p>
+                    <p><strong>Click a fleet</strong> then click a planet to reroute</p>
+                    <p>🏆 <strong>Bigger planets produce faster!</strong></p>
+                </div>
+                <div class="controls-content controls-mobile">
+                    <p><strong>Tap</strong> a planet to select → Tap target to send ships</p>
+                    <p><strong>Drag</strong> to box-select multiple planets</p>
+                    <p><strong>Double-tap</strong> a planet to select all yours</p>
+                    <p><strong>Tap a fleet</strong> then tap a planet to reroute</p>
+                    <p>🏆 <strong>Bigger planets produce faster!</strong></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Campaign Screen -->
+    <div id="campaign-screen" class="hidden">
+        <div class="campaign-container">
+            <h1 class="campaign-title">📜 CAMPAIGN</h1>
+            <div id="campaign-theme-info" class="campaign-theme-info"></div>
+            <div id="campaign-grid" class="campaign-grid"></div>
+            <button id="campaign-back-to-menu" class="secondary-btn campaign-back-btn">← Back to Menu</button>
+        </div>
+    </div>
+    
+    <!-- Game Canvas -->
+    <canvas id="game-canvas"></canvas>
+    
+    <!-- Tutorial Hint -->
+    <div id="tutorial-hint" class="hidden">
+        <span id="hint-text"></span>
+        <button id="hint-close" class="hint-close-btn">✕</button>
+    </div>
+
+    <!-- HUD Overlay -->
+    <div id="hud" class="hidden">
+        <div id="hud-top">
+            <div class="player-info" id="player-info">
+                <span class="dot player-dot"></span>
+                <span id="player-planets">0</span> <span id="label-planets">planets</span> · <span id="player-ships">0</span> <span id="label-ships">ships</span>
+            </div>
+            <div id="hud-center">
+                <div id="campaign-objective"></div>
+                <div id="game-timer">0:00</div>
+            </div>
+            <div class="ai-info" id="ai-info"></div>
+        </div>
+        <div id="hud-bottom">
+            <button id="pause-btn" class="hud-btn">⏸ Pause</button>
+            <button id="speed-btn" class="hud-btn">⏩ 1x</button>
+            <button id="mute-btn" class="hud-btn">🔊</button>
+            <button id="menu-btn" class="hud-btn">☰ Menu</button>
+        </div>
+    </div>
+    
+    <!-- Game Over Overlay -->
+    <div id="gameover-screen" class="hidden">
+        <div class="gameover-container">
+            <h1 id="gameover-title">VICTORY</h1>
+            <p id="gameover-subtitle">You conquered the galaxy!</p>
+            <div id="gameover-stats"></div>
+            <button id="playagain-btn" class="primary-btn">Play Again</button>
+            <button id="backtomenu-btn" class="secondary-btn">Main Menu</button>
+        </div>
+    </div>
+    
+    <!-- Pause Overlay -->
+    <div id="pause-screen" class="hidden">
+        <div class="pause-container">
+            <h2>PAUSED</h2>
+            <button id="resume-btn" class="primary-btn">Resume</button>
+            <button id="restart-btn" class="secondary-btn">Restart</button>
+            <button id="quit-btn" class="secondary-btn">Quit to Menu</button>
+        </div>
+    </div>
+    
+    <!-- Achievements Screen -->
+    <div id="achievements-screen" class="hidden">
+        <div class="achievements-container">
+            <h2>🏅 Achievements</h2>
+            <div id="achievements-grid" class="achievements-grid"></div>
+            <button id="achievements-back-btn" class="secondary-btn">Back</button>
+        </div>
+    </div>
+
+    <!-- Achievement Toast -->
+    <div id="achievement-toast" class="achievement-toast hidden"></div>
+
+    <script src="https://sdk.crazygames.com/crazygames-sdk-v3.js" async></script>
+
+    <script src="themes.js"></script>
+    <script src="game.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
