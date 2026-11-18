@@ -1,37 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <script data-goatcounter="https://armaansood.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-    <!-- META -->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta charset="UTF-8">
     <meta content="Armaan Sood" name="author" />
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Armaan Sood's personal website, with writing, projects, and interests.">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        .post-list {
+            list-style: none;
+            margin: 2em 0 0;
+            padding: 0;
+        }
+
+        .post-list li {
+            display: flex;
+            gap: 1em;
+            margin: 0.5em 0;
+        }
+
+        .post-list time {
+            color: #777;
+            flex: 0 0 5.5em;
+        }
+
+        .profile-links {
+            margin-top: -0.5em;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #171717;
+                color: #d3d3d3;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                color: #f2f2f2;
+            }
+
+            a {
+                color: #8ab4f8;
+            }
+
+            a:visited {
+                color: #c3a6e8;
+            }
+
+            a:hover {
+                color: #b7d1ff;
+            }
+
+            .post-list time {
+                color: #aaa;
+            }
+        }
+    </style>
     <title>Armaan Sood</title>
-    </meta>
 </head>
 <!-- CONTENT -->
 
 <body>
     <article>
         <h1>Armaan Sood</h1>
-        <p>My personal website</p>
-        <h3>Posts</h3>March 2026 - <a href='posts/systems-reading-group'> Five Years of Running a Systems Reading Group at Microsoft </a> (<a href='https://news.ycombinator.com/item?id=47479627'>HN discussion</a>)
-        <h3>Miscellaneous</h3>
-		<a href='babydb.pdf'>BabyDB</a>
-		<br>
-		<a href='https://github.com/armaansood/torgo'>Torgo</a>
-		<br>
-		<a href='posts/my-cat/'>My Cat</a>
-		<br>
-		<a href='swarm-wars/'>Swarm Wars</a>
-		<br>
-		<br>
-		<a href='https://www.github.com/armaansood/'>GitHub</a> · <a href='https://linkedin.com/in/armaansood/'>LinkedIn</a> · <a href='https://x.com/armaanso'>Twitter</a> · <a href='mailto:mail@armaansood.com'>mail@armaansood.com</a>
-		<br>
+        <p class="profile-links">
+            <a href="https://www.github.com/armaansood/">GitHub</a> · <a href="https://linkedin.com/in/armaansood/">LinkedIn</a> · <a href="https://patents.justia.com/inventor/armaan-sood">Patents</a> · <a href="posts/my-cat/">My Cat</a> · <a href="mailto:mail@armaansood.com">Email</a>
+        </p>
+        <ul class="post-list">
+            <li><time datetime="2026-03">Mar 2026</time><span><a href="posts/systems-reading-group">Five Years of Running a Systems Reading Group at Microsoft</a> (<a href="https://news.ycombinator.com/item?id=47479627">HN discussion</a>)</span></li>
+        </ul>
     </article>
 </body>
 
