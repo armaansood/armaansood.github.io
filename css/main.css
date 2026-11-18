@@ -259,6 +259,71 @@ table td {
 	  
 }
 
+:root {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #171717;
+    color: #d3d3d3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #f2f2f2;
+  }
+
+  a {
+    color: #8ab4f8;
+  }
+
+  a:visited {
+    color: #c3a6e8;
+  }
+
+  a:hover {
+    color: #b7d1ff;
+  }
+
+  *::-moz-selection,
+  a::-moz-selection {
+    background: rgba(138, 180, 248, 0.35);
+    color: #fff;
+  }
+
+  *::selection,
+  a::selection {
+    background: rgba(138, 180, 248, 0.35);
+    color: #fff;
+  }
+
+  blockquote {
+    color: #aaa;
+    border-left-color: #333;
+  }
+
+  hr {
+    border-top-color: #444;
+    border-bottom-color: #222;
+  }
+
+  pre, code, kbd, samp {
+    color: #eee;
+  }
+
+  table, table th, table td {
+    border-color: #333;
+  }
+
+  table th {
+    background-color: #252525;
+  }
+
+  .bordered {
+    border-color: #444 !important;
+  }
+}
+
 @media only screen and (min-width: 480px) {
   body {
     font-size: 14px;
